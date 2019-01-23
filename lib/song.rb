@@ -28,8 +28,12 @@ class Song
   end
 
   def self.genre_count
-    @@genres.inject(Hash.new(0)) do |hash, genre| 
-      @@genre_count[genre] += 1
+    @@genre_count = {}
+    @@genres.each do |genre|
+      if @@genre_count[genre] 
+        @@genre_count[genre] += 1
+      end
+    end
   end
 
   def self.artist_count
